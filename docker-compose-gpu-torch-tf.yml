@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  jupyter-gpu-torch-tf:
+    build:
+      context: .
+    image: jupyter-gpu-torch-tf
+    container_name: jupyter_lab
+    ports:
+      - "8789:8789"
+    volumes:
+      - ./playground:/playground
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+              count: 1
