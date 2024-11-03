@@ -4,12 +4,12 @@ services:
   jupyter-gpu-torch-tf:
     build:
       context: .
-    image: jupyter-gpu-torch-tf
-    container_name: jupyter_lab
+    image: jupyter_lab_cv
+    container_name: jupyter_lab_cv
     ports:
       - "8789:8789"
     volumes:
-      - ./playground:/playground
+      - /home/alex/Dev/CV/playground:/playground
     deploy:
       resources:
         reservations:

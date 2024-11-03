@@ -1,4 +1,7 @@
-FROM nvidia/cuda:12.6.2-cudnn-runtime-ubuntu22.04
+# FROM nvidia/cuda:12.2.0-runtime-ubuntu22.04
+# ENV DEBIAN_FRONTEND=noninteractive LANG=C TZ=UTC
+
+FROM nvidia/cuda:12.0.1-cudnn8-runtime-ubuntu22.04
 
 # install some basic utilities
 RUN set -xue ;\
@@ -31,4 +34,5 @@ RUN pip3 install --upgrade pip ;\
 WORKDIR /playground
 
 # run the command
+# CMD ["/bin/bash"]
 CMD ["jupyter", "lab", "--port=8789", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
